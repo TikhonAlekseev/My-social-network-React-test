@@ -1,0 +1,120 @@
+
+
+.profile-data{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+}
+.profile-data-photo{
+    width: 30%;
+
+}
+.profile-data-photo__img{
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    border: 2px solid #e68c24e8;
+}
+
+
+
+
+.profile-data-information{
+    display: inline-block;
+    width: 50%;
+
+}
+
+
+.profile_button_select{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+.profile-news{
+    max-width: 80%;
+    margin: 0 auto;
+}
+.profile-data-information__status{
+    display: inline-block;
+    border: 1px solid #e68c24e8;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+.profile__status__input{
+    background-color: red;
+
+}
+.profile-news-textarea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-bottom: 20px;
+
+}
+.content__add-news {
+    padding: 0;
+    line-height: 1;
+    border: none;
+    padding: 10px;
+    margin-right: 20px;
+
+}
+.content__button {
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+.content__button:hover{
+    cursor: pointer;
+    background-color: #daa923;
+    transition: 0.2s ease-in all;
+}
+.profile-news__list-posts {
+    display: flex;
+    flex-wrap:wrap;
+    padding: 20px 0px 20px 20px;
+    background-color: #ffcc6f;
+    border-radius: 10px;
+}
+.title-post-null{
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 20px;
+}
+.btn:hover{
+    cursor: pointer !important;
+}
+.card{
+    width: 30%;
+    height: 300px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+.card img{
+    height: 100px;
+}
+
+.btn{
+    vertical-align: text-bottom !important;
+}
+.card-buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.card-data{
+    margin-bottom: 50px;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.my-btn{
+    border-radius: 0px 0px 10px 10px !important;
+    padding: 0.675rem 0.67rem !important;
+}

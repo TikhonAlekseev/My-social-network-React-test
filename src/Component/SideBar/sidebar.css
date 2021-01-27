@@ -1,0 +1,26 @@
+
+
+.sidebar{
+    display: inline-block;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    background-color: #e68c24e8;
+    margin-right: 2%;
+}
+.sidebar__link{
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 12px 0px;
+    border-bottom: 1px solid #ffffff;
+}
+.sidebar__link:hover{
+    cursor: pointer !important;
+    background-color: #b87934;
+    color: #ffffff;
+}
+.sidebar__link.active{
+    color: #9eacbd;
+}

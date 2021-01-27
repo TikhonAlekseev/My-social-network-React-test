@@ -1,0 +1,49 @@
+
+.main-window--login{
+    text-align: center;
+}
+.auth-title{
+    display: inline-block;
+    font-size: 22px;
+
+}
+.auth-form{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin: 0 auto;
+}
+
+.auth-form__input{
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1.5px solid #f39357;
+
+
+}
+.auth-form__input:focus{
+    border: 1.5px solid #3e9cc1 !important;
+
+}
+.auth-form__button{
+    font-weight: bold;
+    color: #ffffff;
+    padding: 10px 10px;
+    background-color: #f39357;
+    border: none;
+    margin-bottom: 10px;
+}
+.auth-form__button:hover{
+    background-color: #875313;
+    transition: 0.2s ease-in;
+    cursor: pointer;
+
+}
+.auth-form-registration{
+    display: flex;
+    justify-content: space-between;
+}
+.auth-form-registration__link:hover{
+    cursor: pointer !important;
+
+}

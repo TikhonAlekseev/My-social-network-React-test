@@ -1,0 +1,23 @@
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fd9f3d;
+    margin-bottom: 20px;
+
+}
+.header-account{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+.header-account__name{
+    color: #ffffff;
+    margin-right: 30px;
+    border: 1px solid #ffffff;
+    padding: 5px;
+    width: 150px;
+    text-align: center;
+}

@@ -1,0 +1,26 @@
+
+.list__item{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: yellow;
+    font-size: 0;
+    margin-bottom: 10px;
+}
+
+.list__img{
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+}
+
+.list__text{
+    font-size: 16px;
+
+}
+.list__content{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+}
