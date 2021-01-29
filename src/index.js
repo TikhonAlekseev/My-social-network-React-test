@@ -13,7 +13,7 @@ import LoginPage from "./Component/AuthComponent/Auth";
 
 
 
-let render = () =>{
+function render(){
 
   ReactDOM.render(
     <React.StrictMode>

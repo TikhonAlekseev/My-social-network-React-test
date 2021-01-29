@@ -3,7 +3,7 @@ import firebase from "firebase";
 
 //GET CURRENT USER ID
     export let userId = () =>{
-   const user = firebase.auth().currentUser
+    const user = firebase.auth().currentUser
     const userId = user.uid
     return userId
 }
@@ -62,12 +62,12 @@ import firebase from "firebase";
 
 //GET ALL USERS
     export  const getUsersApi = async () => {
-   const users = (await firebase.database().ref(`/users`).once('value')).val()
-    const usersArray = []
-    for (let key in users){
-        usersArray.push(users[key].info)
-    }
-    return usersArray
+    const users = (await firebase.database().ref(`/users`).once('value')).val()
+        const usersArray = []
+        for (let key in users){
+            usersArray.push(users[key].info)
+        }
+        return usersArray
 }
 
 //GET SELECTED USERS  DATA
@@ -102,3 +102,14 @@ import firebase from "firebase";
     await firebase.database().ref(`/users/${userId()}/posts/${id}`).remove()
 }
 
+//SET DIALOG in DATABASE
+    export const apiSetDialog = async (currentUsers , idOtherUser, message) =>{
+        await firebase.database().ref(`/chat/${currentUsers}/${idOtherUser}`).push({message})
+    }
+
+//GET DIALOG
+
+    export const apiGetDialog = async () => {
+    const chat = (await firebase.database().ref(`/chat/currentUsers/idOtherUser`).once('value')).val()
+    return chat
+    }

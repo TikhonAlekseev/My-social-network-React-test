@@ -2,7 +2,7 @@ import {connect} from "react-redux"
 import Profile from "./Profile"
 import React from 'react'
 import "./profile.css"
-import {addPost, delPost, getPosts, getProfile, getStatus, updateStatus} from "../../Redux/profile-reduce"
+import {addPost, delPost, getProfile,  updateStatus} from "../../Redux/profile-reduce"
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {SecureClass} from "../HOC/secureClass";

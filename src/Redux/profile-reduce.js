@@ -33,7 +33,6 @@ export let profileReducer = (state = initialState , action) =>{
                 postsList: action.posts
             }
         case GET_PROFILE:
-            debugger
             return {
                 ...state,
                 profile: action.dataUser.info,

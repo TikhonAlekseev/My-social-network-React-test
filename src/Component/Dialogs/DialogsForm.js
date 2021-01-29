@@ -13,4 +13,6 @@ let DialogsForm = (props) =>{
 
 
 }
-export default DialogsForm = reduxForm({form:'message'})(DialogsForm)
+
+
+export default  reduxForm({form:'message'})(DialogsForm)

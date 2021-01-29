@@ -1,38 +1,60 @@
+import { getUsersApi,userId,apiSetDialog } from "../API/api"
+const GET_USERS = "GET_USERS"
+const ADD_MESSAGE = "ADD_MESSAGE"
+const GET_DIALOG = "GET_DIALOG"
 
 let initialState = {
-            dialogsList : [
-                { id : 1, name : "Саша" },
-                { id : 2, name : "Петя" },
-                { id : 3, name : "Ваня" },
-                { id : 4, name : "Вова" },
-                { id : 5, name : "Ира" }
-            ],
-            messagesDialog : [
-                {id : 1 , message : "Привет ,как дела?"},
-                {id : 2 , message : "Все хорошо,как сам?"},
-                {id : 3 , message : "Отлично"}
-            ],
-
+    users : [],
+    chat:{
+            message:[
+                    {
+                        idUser:"name",
+                        text:"message"
+                    }
+            ]
+        }
+    ,
 }
-
 
 export let dialogsReducer = (state = initialState , action)=> {
     switch(action.type){
-        case "ADD-NEW-MESSAGE" :
-            let newMessage = {
-                id : 5,
-                message : action.newTextMessage
-            }        
+    
+        case ADD_MESSAGE :       
             return {
                 ...state,
-                messagesDialog:[...state.messagesDialog ,newMessage ],
-                newTextMessage : ""
+               chat : {...state.chat,
+                message:[...state.chat.message , action.newMessage]
+                }
+            }
+        case GET_USERS :       
+            return {
+                ...state,
+               users : action.allUsers
             }
         default:
             return state
         }
 }
 
-export function newMessageActionCreater(newTextMessage){return {type:"ADD-NEW-MESSAGE" , newTextMessage}}
 
+
+export const getUsersName = () => async dispacth => { 
+   const allUsers =  await getUsersApi()
+     dispacth({type:GET_USERS , allUsers })
+}
+
+export const addMessage = (message,idOtherUser) => async dispatch =>{
+    const currentUserId = await userId()
+    const newMessage = {idUser:currentUserId , text:message}
+    apiSetDialog(currentUserId, idOtherUser, newMessage)
+    dispatch({type:ADD_MESSAGE , newMessage})
+
+}
+
+
+export const getDialog = (id) => async dispatch => {
+    const currentUserId = await userId()
+    const idOtherUser = id
+    dispatch({type: GET_DIALOG ,currentUserId , idOtherUser })
+} 
 
