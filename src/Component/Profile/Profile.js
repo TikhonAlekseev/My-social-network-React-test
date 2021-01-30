@@ -11,20 +11,21 @@ class Profile extends React.Component{
     state ={
         photo : avatar,
     }
-    componentDidMount() {
-        // apiGetPhoto().then(res => res !== null ? this.photoSetFunc(res):this.state.photo)
-    }
+    // componentDidMount() {
+    //     apiGetPhoto().then(res => res !== null ? this.photoSetFunc(res):this.state.photo)
+    // }
     // photoSetFunc(data){
     //     let typeArray = new Uint8Array(data)
     //     const photoURL = URL.createObjectURL(new Blob([typeArray.buffer],{type: 'image/jpeg'}))
     //     this.setState({photo : photoURL})
     // }
-
     // editPhoto = (e) =>{
     //    const file = e.target.files
     //     const reader = new FileReader()
+    //     debugger
     //     reader.readAsArrayBuffer(file[0]);
     //     reader.onloadend = async ()=>{
+    //         debugger
     //         const uint8Array = new Uint8Array(reader.result)
     //         await apiSendPhoto(uint8Array)
     //         this.setState({

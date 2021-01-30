@@ -1,4 +1,4 @@
-import { getUsersApi,userId,apiSetDialog } from "../API/api"
+import { getUsersApi,userId,apiSetDialog,apiGetDialog } from "../API/api"
 const GET_USERS = "GET_USERS"
 const ADD_MESSAGE = "ADD_MESSAGE"
 const GET_DIALOG = "GET_DIALOG"
@@ -6,19 +6,20 @@ const GET_DIALOG = "GET_DIALOG"
 let initialState = {
     users : [],
     chat:{
-            message:[
-                    {
-                        idUser:"name",
-                        text:"message"
-                    }
-            ]
+        message:[]
         }
     ,
 }
 
 export let dialogsReducer = (state = initialState , action)=> {
     switch(action.type){
-    
+        case GET_DIALOG :       
+        return {
+            ...state,
+            chat : {...state.chat,
+            message:[ ...action.dialog]
+            }
+        }
         case ADD_MESSAGE :       
             return {
                 ...state,
@@ -52,9 +53,10 @@ export const addMessage = (message,idOtherUser) => async dispatch =>{
 }
 
 
-export const getDialog = (id) => async dispatch => {
+export const getDialog = (idOtherUser) => async dispatch => {
+    debugger
     const currentUserId = await userId()
-    const idOtherUser = id
-    dispatch({type: GET_DIALOG ,currentUserId , idOtherUser })
+    const dialog = await apiGetDialog(currentUserId,idOtherUser)
+    dispatch({type: GET_DIALOG ,dialog })
 } 
 

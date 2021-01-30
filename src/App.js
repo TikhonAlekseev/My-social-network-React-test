@@ -47,8 +47,7 @@ class App extends React.Component {
                         <SiderBar/>
                         <React.Fragment>
                             <Route path="/dialogs/:userId?" render={() => <DialogsContainer/>}/>
-                            <Route path="/profile/:userId?"
-                                   render={() => <ProfileContainer/>}/>
+                            <Route path="/profile/:userId?" render={() => <ProfileContainer/>}/>
                             <Route path="/users" render={() => <UsersContainer/>}/>
                             <Route path="/login" render={() => <LoginPage/>}/>
                         </React.Fragment>

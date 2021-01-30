@@ -17,7 +17,7 @@ const Posts =(props) => {
             }
             else{
                 return props.posts.postsList.map(post => {
-                    debugger
+                    
                     return <Post key ={post.id} id={post.id} text = {post.text} delPost={managePost} editMode={props.editMode}/>
                 }
 

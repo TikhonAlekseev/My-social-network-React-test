@@ -16,6 +16,7 @@
 
 
 }
+
 .users-page-card__photo{
     border:1px solid #875313;
     border-radius: 10px;
@@ -29,3 +30,54 @@
     margin-bottom: 10px;
 }
 
+.users__content{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+.users__sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+
+}
+.users__title{
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.users__input{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.users__list{
+    width: 70%;
+    
+    }
+.users__item{
+    display: inline-block;
+    width: 30%;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.users__item {
+    margin-right: 10px;
+    text-align: center;
+}
+.users__data{
+    margin-bottom: 10px;
+}
+.users__img{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+.users__img img{
+    width: 50px;
+    height: 50px;
+}

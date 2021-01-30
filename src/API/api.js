@@ -104,12 +104,17 @@ import firebase from "firebase";
 
 //SET DIALOG in DATABASE
     export const apiSetDialog = async (currentUsers , idOtherUser, message) =>{
-        await firebase.database().ref(`/chat/${currentUsers}/${idOtherUser}`).push({message})
+        await firebase.database().ref(`/chat/${currentUsers}/${idOtherUser}`).push(message)
     }
 
 //GET DIALOG
 
-    export const apiGetDialog = async () => {
-    const chat = (await firebase.database().ref(`/chat/currentUsers/idOtherUser`).once('value')).val()
-    return chat
+    export const apiGetDialog = async (currentUsers,idOtherUser) => {
+    const chat = (await firebase.database().ref(`/chat/${currentUsers}/${idOtherUser}`).once('value')).val()
+    const allMessages = [] 
+    for(let key in chat){
+        allMessages.push(chat[key])
+    }
+    debugger
+    return allMessages
     }

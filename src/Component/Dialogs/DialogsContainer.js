@@ -19,8 +19,10 @@ class DialogsContainer extends React.Component {
     }
 
     getDialogUser(){
-        const url = this.props.match.params.userId
-        this.props.getDialog(url)
+        const userId = this.props.match.params.userId
+        if(userId !== undefined){
+            this.props.getDialog(userId)
+        }
     }
 
     render(){
