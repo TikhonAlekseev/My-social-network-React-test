@@ -21,9 +21,8 @@ class ProfileContainer extends React.Component{
     }
     getSelectedUser = () =>{
         let userID = this.props.match.params.userId
-        this.props.selectUser(userID)
+        this.props.getProfile(userID)
     }
-
 
     render() {
         if(!this.props.profilePage.profileLoad){
@@ -44,13 +43,14 @@ let mapStateToProps = (state)=>{
 }
 let mapDispatchToProps = (dispatch) =>{
     return {
-        addPosts(post){
+      
+        addPost(post){
             dispatch(addPost(post))
         },
         delPost(id){
             dispatch(delPost(id))
         },
-        selectUser(id){
+        getProfile(id){
             dispatch(getProfile(id))
         },
         updateStatus(status){
@@ -60,10 +60,8 @@ let mapDispatchToProps = (dispatch) =>{
             dispatch(setPhoto(namePhoto))
         }
 
-
     }
 }
-
 
 export default compose(connect(
     mapStateToProps,mapDispatchToProps),

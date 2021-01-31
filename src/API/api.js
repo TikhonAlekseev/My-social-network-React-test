@@ -109,18 +109,46 @@ export const editPhoto = async  (file) =>{
     await firebase.database().ref(`/users/${userId()}/posts/${id}`).remove()
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //SET DIALOG in DATABASE
     export const apiSetDialog = async (currentUsers , idOtherUser, message) =>{
-        await firebase.database().ref(`/chat/${currentUsers}/${idOtherUser}`).push(message)
+        await firebase.database().ref(`/chat/${currentUsers}&${idOtherUser}`).push(message)
+
     }
 
 //GET DIALOG
-
     export const apiGetDialog = async (currentUsers,idOtherUser) => {
-    const chat = (await firebase.database().ref(`/chat/${currentUsers}/${idOtherUser}`).once('value')).val()
+        debugger
+    const chat = (await firebase.database().ref(`/chat`).once('value')).val()
+    const chatUsers = [currentUsers,idOtherUser] 
     const allMessages = [] 
+    
     for(let key in chat){
-        allMessages.push(chat[key])
+        let count = 0
+        for(let i=0 ; i < chatUsers.length ; i++){
+            if(key.includes(chatUsers[i])){
+                count++
+                if(count === 2){
+                    return chat[key]
+                }
+            } 
+        }
+        return chat[key]
     }
     debugger
     return allMessages

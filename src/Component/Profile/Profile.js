@@ -2,7 +2,6 @@ import React from "react"
 import Posts from "./Posts/Posts";
 import ProfileInfo from "./ProfileInfo";
 
-
 const Profile = (props) => {
     const editPhoto = (e) =>{
         const file = e.target.files[0]
@@ -18,7 +17,7 @@ const Profile = (props) => {
                 updateStatus={props.updateStatus}
             />
             <Posts 
-                addPost={props.addPosts}
+                addPost={props.addPost}
                 delPost ={props.delPost}
                 posts={props.profilePage}
                 editMode={props.profilePage.editMode}

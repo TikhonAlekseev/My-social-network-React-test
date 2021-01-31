@@ -7,7 +7,11 @@ let initialState = {
     users : [],
     chat:{
         message:[]
-        }
+    }
+        
+    
+        
+        
     ,
 }
 
@@ -54,7 +58,7 @@ export const addMessage = (message,idOtherUser) => async dispatch =>{
 
 
 export const getDialog = (idOtherUser) => async dispatch => {
-    debugger
+    
     const currentUserId = await userId()
     const dialog = await apiGetDialog(currentUserId,idOtherUser)
     dispatch({type: GET_DIALOG ,dialog })
