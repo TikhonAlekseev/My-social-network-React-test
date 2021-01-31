@@ -3,24 +3,22 @@ import './Users.css'
 import {connect} from "react-redux";
 import {getUsers} from '../../Redux/users-reduce'
 import User from './User'
+
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.getUsers()
     }
     usersList =() =>{
-        return this.props.usersState.users.map(user => <User key={user.id} id = {user.id} name ={user.username} photo={user.userPhoto} />)
+        return this.props.usersState.users.map(user => <User key={user.id} id = {user.id} name ={user.username} userPhoto={user.userPhoto} />)
     }
-    render() {
+    render() { 
 
         return (
-            <>
-                <div className="main-window">
-                    <div className="users-page">
-                        {this.usersList()}
-                    </div>
+            <div className="main-window">
+                <div className="users-page">
+                    {this.usersList()}
                 </div>
-
-            </>
+            </div>
         );
     }
 }

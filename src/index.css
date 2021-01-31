@@ -2,8 +2,8 @@
     box-sizing: border-box;
 }
 
-.container{
-    width: 1170px;
+.my-container{
+    width: 1220px !important;
     display: block;
     margin: 0 auto;
     overflow: hidden;

@@ -3,20 +3,22 @@ import {
     apiAddPost,
     apiStatusUpdate,
     selectedUser,
-    userId, apiGetPosts
+    userId, apiGetPosts,
+    editPhoto
 } from "../API/api";
+// import avatarDefault from '../../img/avatar-default.jpg'
 
 const ADD_POST = "ADD_POST"
 const GET_PROFILE = "GET_PROFILE"
 const SET_STATUS = "SET_STATUS"
 const DELETE_POST = "DELETE_POST"
+const SET_USER_PHOTO  = "SET_USER_PHOTO "
 
 let initialState = {
         postsList:[],
         profile: {},
         profileLoad : false,
         editMode:false
-
 }
 export let profileReducer = (state = initialState , action) =>{
     switch(action.type){
@@ -40,6 +42,15 @@ export let profileReducer = (state = initialState , action) =>{
                 profileLoad:true,
                 editMode:action.edit
             }
+        case SET_USER_PHOTO:
+            return {
+                ...state,
+                profile:{...state.profile,
+                    userPhoto:{
+                        photo:action.img
+                    }
+                }
+            }
         case SET_STATUS:
             return {
                 ...state,
@@ -59,13 +70,11 @@ export const addPost = (post) => async dispatch =>{
         const posts = await apiGetPosts()
         dispatch({type:ADD_POST ,posts })
 }
-
 export const delPost = (id) => async dispatch =>{
         await apiDeletePost(id)
         const posts = await apiGetPosts()
         dispatch({type:DELETE_POST ,posts })
 }
-
 export const getProfile = (id) =>async dispatch => {
     const dataUser = await selectedUser(id).then(res => ({...res}))
     const currentUser = await userId()
@@ -76,10 +85,16 @@ export const getProfile = (id) =>async dispatch => {
 
     dispatch({type:GET_PROFILE , dataUser , edit})
 }
-
 export const updateStatus = (status) => async dispatch =>{
     await apiStatusUpdate(status)
     dispatch({type:SET_STATUS ,status })
 }
 
+
+
+export const setPhoto = (file) => async dispatch =>{
+    const img = await editPhoto(file)
+    debugger
+    dispatch({type:SET_USER_PHOTO , img})
+}
 

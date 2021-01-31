@@ -1,5 +1,24 @@
 
 import firebase from "firebase";
+import {storage} from "../App"
+
+
+
+
+
+// GET AND SEND USERS PHOTO
+export const editPhoto = async  (file) =>{
+
+    //Отправляем фото в хранилище
+    await  storage.ref(`/images/${userId()}/${file.name}`).put(file)
+    //Отправляем название фотки в базу
+    const photo = (await storage.ref(`/images/${userId()}`).child(file.name).getDownloadURL())
+    await firebase.database().ref(`/users/${userId()}/info/userPhoto`).set({photo:photo})
+
+    return photo
+    
+}
+
 
 //GET CURRENT USER ID
     export let userId = () =>{
@@ -13,18 +32,6 @@ import firebase from "firebase";
     await firebase.database().ref(`/users/${userId()}/info/status`).set({
         text:status
     })
-}
-
-// GET AND SEND USERS PHOTO
-    export let apiSendPhoto = async (photo) =>{
-        await firebase.database().ref(`users/${userId()}/info/userPhoto`).set({
-            photo:photo
-        })
-    }
-
-    export let apiGetPhoto = async () =>{
-    let photoUrl =  (await firebase.database().ref(`/users/${userId()}/info/userPhoto/photo`).once('value')).val()
-    return photoUrl
 }
 
 //SIGN IN
@@ -118,3 +125,5 @@ import firebase from "firebase";
     debugger
     return allMessages
     }
+
+

@@ -25,6 +25,7 @@ firebase.initializeApp({
         appId: "1:827011378666:web:36afb2e274154dc09bd693"
     }
 )
+export const storage = firebase.storage()
 
 class App extends React.Component {
      componentDidMount() {
@@ -42,7 +43,7 @@ class App extends React.Component {
         return(
             <BrowserRouter>
                 <div>
-                    <div className="container">
+                    <div className="my-container">
                         <Header/>
                         <SiderBar/>
                         <React.Fragment>

@@ -1,12 +1,18 @@
 import React from 'react'
 import {ProfileStatus} from "./ProfileStatus";
+import avatar from '../../img/avatar-default.jpg'
+
 
 const ProfileInfo = (props) =>{
+    console.log(props.userPhoto)
     return (
         <div className="profile-data">
             <div className="profile-data-photo">
-                <img  src={props.photo} className = "profile-data-photo__img"/>
-
+                {props.userPhoto === undefined?
+                <img  src={avatar} className = "profile-data-photo__img"/>
+                :
+                <img  src={props.userPhoto} className = "profile-data-photo__img" />
+            }
                 {props.editMode?
                     <div className="profile-data-photo__input input-wrap">
                         <input onChange={event =>props.editPhoto(event) } id='photo-edit' type="file" accept="image/*" className='profile_button_select'/>

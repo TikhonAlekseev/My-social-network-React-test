@@ -5,9 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from "./Redux/store"
 import {Provider} from "react-redux"
-import firebase from "firebase";
-import {BrowserRouter, Route} from "react-router-dom";
-import LoginPage from "./Component/AuthComponent/Auth";
 
 
 

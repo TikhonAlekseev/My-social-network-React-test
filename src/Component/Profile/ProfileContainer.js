@@ -2,7 +2,7 @@ import {connect} from "react-redux"
 import Profile from "./Profile"
 import React from 'react'
 import "./profile.css"
-import {addPost, delPost, getProfile,  updateStatus} from "../../Redux/profile-reduce"
+import {addPost, delPost, getProfile,  updateStatus,setPhoto} from "../../Redux/profile-reduce"
 import {withRouter} from "react-router-dom";
 import {compose} from "redux";
 import {SecureClass} from "../HOC/secureClass";
@@ -24,6 +24,7 @@ class ProfileContainer extends React.Component{
         this.props.selectUser(userID)
     }
 
+
     render() {
         if(!this.props.profilePage.profileLoad){
             return (<Loader/>)
@@ -32,11 +33,13 @@ class ProfileContainer extends React.Component{
     }
 }
 
+
 let mapStateToProps = (state)=>{
     return {
         profilePage : state.profilePage,
         profile : state.profilePage.profile,
-        editMode : state.profilePage.editMode
+        editMode : state.profilePage.editMode,
+        userPhoto:state.profilePage.profile.userPhoto
     }
 }
 let mapDispatchToProps = (dispatch) =>{
@@ -53,6 +56,9 @@ let mapDispatchToProps = (dispatch) =>{
         updateStatus(status){
             dispatch(updateStatus(status))
         },
+        setPhoto(namePhoto){
+            dispatch(setPhoto(namePhoto))
+        }
 
 
     }

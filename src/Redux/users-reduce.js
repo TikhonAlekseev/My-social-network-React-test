@@ -1,4 +1,4 @@
-import React from 'react'
+
 import {getUsersApi} from "../API/api";
 const SET_USERS = 'SET_USERS'
 
