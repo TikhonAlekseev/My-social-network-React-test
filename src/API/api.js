@@ -136,7 +136,7 @@ export const editPhoto = async  (file) =>{
         debugger
     const chat = (await firebase.database().ref(`/chat`).once('value')).val()
     const chatUsers = [currentUsers,idOtherUser] 
-    const allMessages = [] 
+    const allMessage = []
     
     for(let key in chat){
         let count = 0
@@ -144,14 +144,18 @@ export const editPhoto = async  (file) =>{
             if(key.includes(chatUsers[i])){
                 count++
                 if(count === 2){
-                    return chat[key]
+                    allMessage.push(chat[key])
+                }else{
+
                 }
             } 
+            
         }
-        return chat[key]
     }
     debugger
-    return allMessages
+    return allMessage
+    
+    
     }
 
 

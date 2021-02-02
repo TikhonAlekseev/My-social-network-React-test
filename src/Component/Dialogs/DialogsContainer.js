@@ -17,14 +17,12 @@ class DialogsContainer extends React.Component {
             this.getDialogUser()
         }
     }
-
     getDialogUser(){
         const userId = this.props.match.params.userId
         if(userId !== undefined){
             this.props.getDialog(userId)
         }
     }
-
     render(){
         return (
             <Dialogs {...this.props} idOtherUsersInDialog ={this.props.match.params.userId} />

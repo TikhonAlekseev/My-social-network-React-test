@@ -8,20 +8,17 @@ let initialState = {
     chat:{
         message:[]
     }
-        
-    
-        
-        
     ,
 }
 
 export let dialogsReducer = (state = initialState , action)=> {
     switch(action.type){
-        case GET_DIALOG :       
+        case GET_DIALOG : 
+        debugger      
         return {
             ...state,
             chat : {...state.chat,
-            message:[ ...action.dialog]
+            message:[...action.dialogMessage]
             }
         }
         case ADD_MESSAGE :       
@@ -58,9 +55,14 @@ export const addMessage = (message,idOtherUser) => async dispatch =>{
 
 
 export const getDialog = (idOtherUser) => async dispatch => {
-    
     const currentUserId = await userId()
-    const dialog = await apiGetDialog(currentUserId,idOtherUser)
-    dispatch({type: GET_DIALOG ,dialog })
+    const dialogs = await apiGetDialog(currentUserId,idOtherUser)
+    const dialogMessage = []
+    for(let i = 0 ; i < dialogs.length ; i++){
+        for(let key in dialogs[i]){
+            dialogMessage.push(dialogs[i][key])
+        }
+    }
+    dispatch({ type: GET_DIALOG ,dialogMessage } )
 } 
 
